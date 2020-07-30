@@ -2,7 +2,7 @@
     "name": "jpeters/architect-test-helpers",
     "description": "Architect Test Helpers",
     "type": "library",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "require": {
         "jpeters/architect": "^0.3.0",
