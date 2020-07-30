@@ -32,7 +32,7 @@ class User extends Blueprint
         ];
     }
 
-    public function card()
+    public function card(): ?string
     {
         return UserCard::class;
     }
