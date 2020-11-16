@@ -31,6 +31,8 @@ class ArchitectTestCase extends TestCase
 
     protected function loadMigrations()
     {
+        $this->artisan('migrate')->run();
+
         $this->loadMigrationsFrom([
             '--database' => 'sqlite',
             '--path' => realpath(__DIR__ . '/Laravel/Migrations'),
