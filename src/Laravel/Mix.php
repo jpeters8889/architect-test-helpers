@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers\Laravel;
 
 class Mix extends \Illuminate\Foundation\Mix

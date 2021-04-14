@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 /** @var Factory $factory */
 
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
 use JPeters\Architect\TestHelpers\Laravel\Models\User;
 
 $factory->define(User::class, function (Faker $faker) {

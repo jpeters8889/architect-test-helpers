@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers;
 
-use Illuminate\Foundation\Application;
 use JPeters\Architect\Architect;
-use JPeters\Architect\Providers\ArchitectApplicationServiceProvider;
-use JPeters\Architect\Providers\ArchitectServiceProvider;
-use JPeters\Architect\TestHelpers\Laravel\Models\User;
-use JPeters\Architect\TestHelpers\Laravel\Providers\TestingServiceProvider;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Foundation\Application;
+use JPeters\Architect\TestHelpers\Laravel\Models\User;
+use JPeters\Architect\Providers\ArchitectServiceProvider;
+use JPeters\Architect\Providers\ArchitectApplicationServiceProvider;
+use JPeters\Architect\TestHelpers\Laravel\Providers\TestingServiceProvider;
 
 class ArchitectTestCase extends TestCase
 {
@@ -24,7 +26,7 @@ class ArchitectTestCase extends TestCase
 
         $this->loadMigrations();
 
-        $this->withFactories(__DIR__ . '/Laravel/Factories');
+        $this->withFactories(__DIR__.'/Laravel/Factories');
 
         $this->architect = resolve(Architect::class);
     }
@@ -35,7 +37,7 @@ class ArchitectTestCase extends TestCase
 
         $this->loadMigrationsFrom([
             '--database' => 'sqlite',
-            '--path' => realpath(__DIR__ . '/Laravel/Migrations'),
+            '--path' => realpath(__DIR__.'/Laravel/Migrations'),
         ]);
     }
 
@@ -51,7 +53,7 @@ class ArchitectTestCase extends TestCase
     protected function getEnvironmentSetUp($app)
     {
         $app->useStoragePath('');
-        $app->instance('path.public', __DIR__ . '/../../architect/public');
+        $app->instance('path.public', __DIR__.'/../../architect/public');
 
         $app['config']->set(['auth.providers.users.model' => User::class]);
 

@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers\Abstracts;
 
+use RuntimeException;
 use JPeters\Architect\Plans\Plan;
 use JPeters\Architect\TestHelpers\ArchitectTestCase;
-use JPeters\Architect\TestHelpers\Laravel\Models\Blog;
-use JPeters\Architect\TestHelpers\Laravel\Models\BlogType;
 use JPeters\Architect\TestHelpers\Laravel\Models\User;
-use RuntimeException;
 
 abstract class PlanTestCase extends ArchitectTestCase
 {
@@ -28,7 +28,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     abstract public function getColumnName();
 
     /** @test */
-    public function it_returns_a_new_plan_from_the_static_generator()
+    public function itReturnsANewPlanFromTheStaticGenerator()
     {
         $this->assertInstanceOf(
             $this->getPlan(),
@@ -37,7 +37,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_can_be_hidden_from_the_index()
+    public function itCanBeHiddenFromTheIndex()
     {
         $this->plan->hideOnIndex();
 
@@ -45,7 +45,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_can_be_hidden_from_forms()
+    public function itCanBeHiddenFromForms()
     {
         $this->plan->hideOnForms();
 
@@ -53,7 +53,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_can_be_hidden_for_mobile_views()
+    public function itCanBeHiddenForMobileViews()
     {
         $this->plan->hideFromIndexOnMobile();
 
@@ -61,14 +61,14 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_sets_the_column_name()
+    public function itSetsTheColumnName()
     {
         $this->assertNotNull($this->plan->getColumn());
         $this->assertEquals($this->getColumnName(), $this->plan->getColumn());
     }
 
     /** @test */
-    public function it_sets_the_label_name()
+    public function itSetsTheLabelName()
     {
         $class = $this->getPlan();
 
@@ -80,7 +80,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_sets_a_complex_label_name()
+    public function itSetsAComplexLabelName()
     {
         $class = $this->getPlan();
 
@@ -91,7 +91,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_updates_the_model()
+    public function itUpdatesTheModel()
     {
         /** @var User $user */
         $user = factory(User::class)->create();
@@ -107,7 +107,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_can_have_a_default()
+    public function itCanHaveADefault()
     {
         $class = $this->getPlan();
 
@@ -122,7 +122,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_can_have_event_listeners_set()
+    public function itCanHaveEventListenersSet()
     {
         $this->assertArrayHasKey('listeners', $this->plan->getMetas());
 
@@ -135,7 +135,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_errors_when_trying_to_add_an_unknown_event()
+    public function itErrorsWhenTryingToAddAnUnknownEvent()
     {
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Unknown event handler');
@@ -146,7 +146,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_executes_a_listener()
+    public function itExecutesAListener()
     {
         $this->assertArrayHasKey('listeners', $this->plan->getMetas());
 
@@ -161,7 +161,7 @@ abstract class PlanTestCase extends ArchitectTestCase
     }
 
     /** @test */
-    public function it_errors_when_trying_to_execute_an_unknown_listener()
+    public function itErrorsWhenTryingToExecuteAnUnknownListener()
     {
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage("Couldn't find listener");

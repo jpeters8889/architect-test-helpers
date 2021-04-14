@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers\Laravel\Blueprints;
 
-use JPeters\Architect\Blueprints\Blueprint;
 use JPeters\Architect\Cards\Card;
 use JPeters\Architect\Plans\DateTime;
 use JPeters\Architect\Plans\Textfield;
+use JPeters\Architect\Blueprints\Blueprint;
 use JPeters\Architect\TestHelpers\Laravel\Cards\UserCard;
 
 class User extends Blueprint

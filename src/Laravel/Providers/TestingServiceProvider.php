@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers\Laravel\Providers;
 
-use Carbon\Laravel\ServiceProvider;
-use Illuminate\Foundation\Mix;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Mix;
+use Carbon\Laravel\ServiceProvider;
+use Illuminate\Support\Facades\Config;
 
 class TestingServiceProvider extends ServiceProvider
 {

@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JPeters\Architect\TestHelpers\Laravel\Blueprints;
 
-use Illuminate\Database\Eloquent\Builder;
-use JPeters\Architect\Blueprints\Blueprint;
 use JPeters\Architect\Plans\Lookup;
 use JPeters\Architect\Plans\Textarea;
 use JPeters\Architect\Plans\Textfield;
+use Illuminate\Database\Eloquent\Builder;
+use JPeters\Architect\Blueprints\Blueprint;
 use JPeters\Architect\TestHelpers\Laravel\Models\BlogType;
 
 class Blog extends Blueprint
