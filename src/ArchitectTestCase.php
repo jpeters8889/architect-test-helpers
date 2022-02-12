@@ -55,6 +55,12 @@ class ArchitectTestCase extends TestCase
         $app->useStoragePath('');
         $app->instance('path.public', __DIR__.'/../../architect/public');
 
+        $app['config']->set(['auth.guards.api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ]]);
+
         $app['config']->set(['auth.providers.users.model' => User::class]);
 
         $app['config']->set('database.default', 'sqlite');
