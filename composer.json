@@ -2,10 +2,10 @@
   "name": "jpeters/architect-test-helpers",
   "description": "Architect Test Helpers",
   "type": "library",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "license": "MIT",
   "require": {
-    "jpeters/architect": "^0.8",
+    "jpeters/architect": "^0.8 | ^0.9.0",
     "orchestra/testbench": "^7.0",
     "phpunit/phpunit": "^9.0",
     "laravel/legacy-factories": "^1.0"
